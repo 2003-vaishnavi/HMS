@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add note</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+        body {
+            background-color: plum;
+        }
+        .btnstyle {
+            background-color:rgb(255, 0, 123);
+            color:white;
+            padding:10px;
+            border-radius: 8px;
+            border:none;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <a href="{{url_for('studentdetails')}}"><button style="float:right" class="btnstyle">Back</button></a>
+    <form>
+            <label>sid</label>
+            <p><input placeholder="Enter sid" type="number" name="sid" value='{{data[0]}}' readonly>/></p>
+            <label>sname</label>
+            <p><input placeholder="Enter name" type="text" name="sname" value='{{data[1]}}'readonly/></p>
+            <label><section></section></label>
+            <p><input placeholder="Enter section" type="text" name="section" value='{{data[2]}}' readonly/></p>
+            <label>roomno</label>
+            <p><input placeholder="Enter roomno" type="n" name="roomno" value='{{data[3]}}' readonly/></p>
+    </form>
+</body>
+</html>

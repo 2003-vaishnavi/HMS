@@ -1,0 +1,37 @@
+body{
+    background-image: url('https://img.freepik.com/free-psd/abstract-background-design_1297-85.jpg?w=1060&t=st=1681653264~exp=1681653864~hmac=3e6c2b1e4730e6f35cd0969f3a43ec867e12144cab2131b44fbea76eccefe81c');
+    background-size: cover;
+    height: 89vh;
+}
+.login{
+    margin-top: 8%;
+    margin-left: 40%;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    width: 490px;
+}
+.lhead{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.llabel{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+.login input[type="email"],
+.login input[type="password"] {
+    width: 75%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+  }
+  p{
+    display: inline;
+  }
+  .no-account{
+    display: inline;
+    margin-left: 15%;
+  }

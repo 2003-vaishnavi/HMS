@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            background-image: url('https://www.zephyrproject.org/wp-content/uploads/sites/38/2019/10/learn-header.png');
+            background-size: cover;
+            height: 100vh;
+        }
+        b{
+            color:white;
+        }
+        label {
+            color:antiquewhite;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: medium;
+            font-weight: bold;
+        }
+        .btnstyle {
+            background-color: rgb(226, 231, 233);
+            color:blue;
+            padding:10px;
+            border-radius: 10px;
+            border:none;
+            margin: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <center>
+        <br><h1 style="color:rgb(255, 226, 6)">Student Registration Page</h1></center>
+        <a href="{{url_for('dashboard')}}"><button class="btnstyle">Back</button></a>
+        <div style="margin-left:40%;; margin-top:5%">
+        <form method="POST">
+            <label>Id</label>
+            <p><input placeholder="Enter your id" type="number" name="sid" required/></p>
+            <label>Name</label>
+            <p><input placeholder="Enter your name" type="text" name="sname" required/></p>
+            <label>Section</label>
+            <p><input placeholder="Enter your section" type="text" name="section" required/></p>
+            <label>Room no</label>
+            <p><input placeholder="Enter your Room no" type="number" name="roomno" required/></p>
+            <button class="btnstyle">Register</button> 
+            
+</body>
+</html>

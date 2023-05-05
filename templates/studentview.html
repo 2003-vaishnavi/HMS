@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add note</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+        body {
+            background-color: plum;
+        }
+        .btnstyle {
+            background-color:rgb(255, 0, 123);
+            color:white;
+            padding:10px;
+            border-radius: 8px;
+            border:none;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <a href="{{url_for('studentrecord')}}"><button style="float:right" class="btnstyle">Back</button></a>
+    <form>
+            <label>id</label>
+            <p><input placeholder="Enter id" type="number" name="id" value='{{data[0]}}' readonly/></p>
+            <label>sid</label>
+            <p><input placeholder="Enter sid" type="number" name="sid" value='{{data[1]}}' readonly>/></p>
+            <label>sname</label>
+            <p><input placeholder="Enter name" type="text" name="sname" value='{{data[2]}}'readonly/></p>
+            <label>Section</label>
+            <p><input placeholder="Enter Section name" type="text" name="Section" value='{{data[3]}}' /></p>
+            <label>Roomno</label>
+            <p><input placeholder="Enter Roomno" type="number" name="Roomno" value='{{data[4]}}' /></p>
+            <label>stu_checkin</label>
+            <p><input placeholder="Enter checkin time&date" type="datetime" name="stu_checkin" value='{{data[5]}}' readonly/></p>
+            <label>stucheckout</label>
+            <p><input placeholder="Enter checkout time&date" type="datetime" name="stu_checkout" value='{{data[6]}}' readonly/></p>
+    </form>
+</body>
+</html>

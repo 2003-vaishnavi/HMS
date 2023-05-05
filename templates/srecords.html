@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            background-image: url('https://images.unsplash.com/photo-1530305408560-82d13781b33a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGxhaW58ZW58MHx8MHx8&w=1000&q=80');
+            background-size: cover;
+        }
+        b{
+            color:antiquewhite;
+        }
+        label {
+            color: white;
+        }
+        .btnstyle {
+            background-color: rgb(226, 231, 233);
+            color:blue;
+            padding:10px;
+            border-radius: 8px;
+            border:none;
+            margin: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <center>
+        <h1 style="color:white">Student Registration Page</h1></center>
+        <div style="margin-left:42%;; margin-top:5%">
+        <form method="POST">
+            <label>id</label>
+            <p><input placeholder="Enter id" type="number" name="id" required/></p>
+            <label>sid</label>
+            <p><input placeholder="Enter sid" type="number" name="sid" required/></p>
+            <label>sname</label>
+            <p><input placeholder="Enter name" type="text" name="sname" required/></p>
+            <label>stu_checkin</label>
+            <p><input placeholder="Enter checkin time" type="datetime" name="stu_checkin" required/></p>
+            <label>stu_checkout</label>
+            <p><input placeholder="Enter checkout time" type="datetime" name="stu_checkout" required/></p>
+            <button class="btnstyle">Register</button> 
+</body>
+</html>

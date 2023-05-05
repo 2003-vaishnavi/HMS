@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            background-image: url('https://img.freepik.com/premium-photo/hand-laptop-keyboard-with-clean-background-work-home-concept_34939-423.jpg');
+            background-size: cover;
+            height: 100vh;
+        }
+        b{
+            color:antiquewhite;
+            font-size:large;
+        }
+        label {
+            color: white;
+        }
+        .btnstyle {
+            background-color: rgb(226, 231, 233);
+            color:blue;
+            padding:10px;
+            border-radius: 8px;
+            border:none;
+            margin: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <center>
+        <br><h1 style="color:rgb(238, 219, 9)">Add Student</h1></center>
+        <div style="margin-left:45%;; margin-top:3%">
+        <form method="POST">
+            <label>Id</label>
+            <p><input placeholder="Enter id" type="number" name="Id" required/></p>
+            <label>Name</label>
+            <p><input placeholder="Enter name" type="text" name="visitorname" required/></p>
+            <label>Mobile</label>
+            <p><input placeholder="Enter mobile no." type="number" name="visitormobile" required/></p>
+            <label>Roomno</label>
+            <p><input placeholder="Enter roomno" type="number" name="roomno" required/></p>
+            <label>checkin</label>
+            <p><input placeholder="Enter checkin time&date" type="datetime" name="checkin" required/></p>
+            <label>checkout</label>
+            <p><input placeholder="Enter checkout time&date" type="datetime" name="checkout" required/></p>
+            <button class="btnstyle">Add</button> 
+            </form>
+            <a href="{{url_for('dashboard')}}"><button>Back</button></a>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+        body {
+            background-color: plum;
+        }
+        .btnstyle {
+            background-color:rgb(255, 0, 123);
+            color:white;
+            padding:10px;
+            border-radius: 8px;
+            border:none;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <a href="{{url_for('visitorrecord')}}"><button style="float:right" class="btnstyle">Back</button></a>
+    <form>
+            <label>id</label>
+            <p><input placeholder="Enter id" type="number" name="v_id" value='{{data[0]}}' readonly/></p>
+            <label>v_mobile</label>
+            <p><input placeholder="Enter sid" type="number" name="v_mobile" value='{{data[1]}}' readonly>/></p>
+            <label>name</label>
+            <p><input placeholder="Enter name" type="text" name="v_name" value='{{data[2]}}'readonly/></p>
+            <label>sid</label>
+            <p><input placeholder="Enter sid" type="number" name="sid" value='{{data[3]}}' readonly/></p>
+            <label>v_checkin</label>
+            <p><input placeholder="Enter checkin time&date" type="datetime" name="v_checkin" value='{{data[4]}}' readonly/></p>
+            <label>v_checkout</label>
+            <p><input placeholder="Enter checkout time&date" type="datetime" name="v_checkout" value='{{data[5]}}' readonly/></p>
+    </form>
+</body>
+</html>

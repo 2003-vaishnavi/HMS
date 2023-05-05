@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Website</title>
+	<style>
+		body {
+            background-image: url('http://rmkec.ac.in/cam/data/images1/hostel_1.jpg');
+            background-size: cover;
+            height: 80vh;
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+			color: #333;
+			text-align: center;
+		}
+		h1 {
+			margin-top: 50px;
+			font-size: 3em;
+			text-shadow: 2px 2px #ccc;
+		}
+		p {
+			font-size: 1.2em;
+			margin-top: 20px;
+			margin-bottom: 50px;
+		}
+		button {
+			padding: 10px 20px;
+			border-radius: 25px;
+			background-color: #4CAF50;
+			color: #fff;
+			font-size: 1.2em;
+			border: none;
+			margin-right: 20px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+		button:hover {
+			background-color: #3e8e41;
+		}
+	</style>
+</head>
+<body>
+	<h1>Welcome to Hostel Management</h1>
+	<p>Please sign up or log in to continue:</p>
+	<a href="{{url_for('UserSignup')}}"><button>Sign Up</button></a>
+	<a href="{{url_for('login')}}"><button>Log In</button></a>
+</body>
+</html>

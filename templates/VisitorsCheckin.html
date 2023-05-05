@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HOSTEL MANGEMENT SYSTEM</title>
+    <link type="text/css" rel="stylesheet" href="{{url_for('static',filename = '/Check in-page.css')}}">
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <center><b>{{message}}</b><center>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<body >
+    <a href="{{url_for('dashboard')}}"><button>Back</button></a>
+    <table>
+        <tr>
+            <td>
+                <!--HTML form for crud operation-->
+                
+                <form autocomplete="off" action="{{url_for('visitor')}}" method="POST">
+
+                    <div>
+                        <label for="fullName">Student-Id</label>
+                        <input type="number" name="sid" >
+                    </div>
+                    <div>
+                        <label for="fullName">Visitor Name</label>
+                        <input type="text" name="visitorname"  >
+                    </div>
+                    <div>
+                        <label for="fullName">Mobile Number</label>
+                        <input type="number" name="visitormobile"  >
+                    </div>
+                    
+                        <button type="submit">submit</button>
+                </form>
+            </td>
+            <td>
+                <table class="list" id="employeeList">
+                    <thead>
+                        <tr>
+                            <th>vid</th>
+                            <th>Student-Id</th>
+                            <th>Visitor-name</th>
+                            <th>MobileNo</th>
+                            <th>Check(OUT)</th>
+                            <th>Check(IN)</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      {% for i in details %}
+                      <tr>
+                          <td>{{i[0]}}</td>
+                          <td>{{i[1]}}</td>
+                          <td>{{i[2]}}</td>
+                          <td>{{i[3]}}</td>
+
+                          {% if i[5]!=None %}
+                          <td>{{i[5]}}</td>
+                          {% else %}
+                          <td><a href='{{url_for("checkoutvisitor",date=i[0],id1=i[0])}}'>{{i[5]}}</td></a>
+                          {% endif %}
+                          {% if i[4]!=None %}
+                          <td>{{i[4]}}</td>
+                          {% else %}
+                          <td><a href='{{url_for("checkinvisitor",date=i[0],id1=i[0])}}'>{{i[4]}}</td></a>
+                          {% endif %}
+                          <td>{{i[6]}}</td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HOSTEL MANGEMENT SYSTEM</title>
+    <link type="text/css" rel="stylesheet" href="{{url_for('static',filename = '/Check in-page.css')}}">
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <center><b>{{message}}</b><center>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<body >
+    <a href="{{url_for('dashboard')}}"><button>back</button></a>
+    <table>
+        <tr>
+            <td>
+                <!--HTML form for crud operation-->
+                <form>
+                <div>
+                    <label for="id">Id</label>
+                    <select name="sname" id="name" >
+                        {% for i in data %}
+                        <option>{{i[0]}}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="submit">
+                </div>
+                </form>
+                <form autocomplete="off" action="{{url_for('checkin')}}" method="POST">
+
+                    <div>
+                        <label for="fullName">Student-Id</label>
+                        <input type="text" name="sid" id="id" value="{{details[0]}}" readonly>
+                    </div>
+                    <div>
+                        <label for="fullName">Student Name</label>
+                        <input type="text" name="name"  value="{{details[1]}}" readonly>
+                    </div>
+                    <div>
+                        <label for="fullName">Section</label>
+                        <input type="text" name="section"  value="{{details[2]}}" readonly>
+                    </div>
+                    <div>
+                        <label for="fullName">Roomno</label>
+                        <input type="text" name="roomno"  value="{{details[3]}}" readonly>
+                    </div>
+                        <button type="submit">submit</button>
+                </form>
+            </td>
+            <td>
+                <table class="list" id="employeeList">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Id</th>
+                            <th>Student-Id</th>
+                            <th>Student-name</th>
+                            <th>Section</th>
+                            <th>Roomno</th>
+                            <th>Check(OUT)</th>
+                            <th>Check(IN)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      {% for i in std_records %}
+                      <tr>
+                          <td>{{i[0]}}</td>
+                          <td>{{i[1]}}</td>
+                          <td>{{i[2]}}</td>
+                          <td>{{i[3]}}</td>
+                          <td>{{i[4]}}</td>
+                            <td>{{i[5]}}</td>
+                          {% if i[6]!=None %}
+                          <td>{{i[6]}}</td>
+                          {% else %}
+                          <td><a href='{{url_for("checkoutupdate",date=i[0],id1=i[1])}}'>{{i[6]}}</td></a>
+                          {% endif %}
+                          {% if i[7]!=None %}
+                          <td>{{i[7]}}</td>
+                          {% else %}
+                          <td><a href='{{url_for("checkinupdate",date=i[0],id1=i[1])}}'>{{i[7]}}</td></a>
+                          {% endif %}
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
